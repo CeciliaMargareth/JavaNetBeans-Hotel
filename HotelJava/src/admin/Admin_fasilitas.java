@@ -415,6 +415,7 @@ public class Admin_fasilitas extends javax.swing.JFrame {
         }
     }
 public void reset() {
+    
     tipeKamar.setText("");
     namaFasilitas.setText("");
     btnSimpan.setEnabled(true);

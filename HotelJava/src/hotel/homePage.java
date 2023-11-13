@@ -245,8 +245,8 @@ public class homePage extends javax.swing.JFrame {
             + checkInString + "','"
             + checkOutString + "','"
             + nmPesan.getText() + "')");
-    
-//    PDDocument document = new PDDocument();
+    //test test
+//    PDDocument document = new PDDocument(); 
 //    PDPage page = new PDPage();
 //    document.addPage(page);
 //
