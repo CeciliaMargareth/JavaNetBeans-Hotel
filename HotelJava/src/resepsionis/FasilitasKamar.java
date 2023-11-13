@@ -4,17 +4,24 @@
  */
 package resepsionis;
 
-/**
- *
- * @author AXIOO
- */
+import java.sql.Connection;
+import java.sql.ResultSet;
+import java.sql.Statement;
+import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
+
 public class FasilitasKamar extends javax.swing.JFrame {
     int xx, xy;
-    /**
-     * Creates new form FasilitasKamar
-     */
+    
+    public Statement st;
+    public ResultSet rs;
+    public DefaultTableModel tabModel;
+    Connection cn = koneksi.Koneksi.koneksiDb();
+    
     public FasilitasKamar() {
         initComponents();
+        judul();
+        tampilData("");
     }
 
     /**
@@ -31,10 +38,12 @@ public class FasilitasKamar extends javax.swing.JFrame {
         jLabel7 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        tableKamar = new javax.swing.JTable();
         jSpinner1 = new javax.swing.JSpinner();
+        jLabel8 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setResizable(false);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
@@ -71,7 +80,7 @@ public class FasilitasKamar extends javax.swing.JFrame {
 
         jScrollPane1.setBackground(new java.awt.Color(255, 255, 255));
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        tableKamar.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null},
                 {null, null, null},
@@ -87,12 +96,22 @@ public class FasilitasKamar extends javax.swing.JFrame {
                 "Nama Tamu", "Tanggal Check In", "Tanggal Check Out"
             }
         ));
-        jScrollPane1.setViewportView(jTable1);
+        jScrollPane1.setViewportView(tableKamar);
 
         jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 180, 740, 180));
 
         jSpinner1.setModel(new javax.swing.SpinnerDateModel());
         jPanel1.add(jSpinner1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 140, -1, -1));
+
+        jLabel8.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/close icon.png"))); // NOI18N
+        jLabel8.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        jLabel8.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel8MouseClicked(evt);
+            }
+        });
+        jPanel1.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(750, 0, 50, 50));
 
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
@@ -109,6 +128,10 @@ public class FasilitasKamar extends javax.swing.JFrame {
         int y = evt.getYOnScreen();
         this.setLocation(x - xx, y - xy); 
     }//GEN-LAST:event_jPanel1MouseDragged
+
+    private void jLabel8MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel8MouseClicked
+        System.exit(0);
+    }//GEN-LAST:event_jLabel8MouseClicked
 
     /**
      * @param args the command line arguments
@@ -149,9 +172,46 @@ public class FasilitasKamar extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JSpinner jSpinner1;
-    private javax.swing.JTable jTable1;
+    private javax.swing.JTable tableKamar;
     // End of variables declaration//GEN-END:variables
+
+public void judul() {
+        Object[] judul = {
+            "Nama Tamu", "Tanggal Check-In", "Tanggal Check-In"
+        };
+        tabModel = new DefaultTableModel(null, judul);
+        tableKamar.setModel(tabModel);
+    }
+
+public void tampilData(String where) {
+    try {
+        st = cn.createStatement();
+        tabModel.getDataVector().removeAllElements();
+        tabModel.fireTableDataChanged();
+
+        // Menggunakan JOIN untuk menggabungkan data dari pesanan dan resepsionis
+        rs = st.executeQuery("SELECT pesanan.email, pesanan.no_telp, pesanan.nama_tamu,  pesanan.check_in, pesanan.check_out " +
+                            "FROM pesanan " +
+                            "LEFT JOIN resepsionis ON pesanan.nama_tamu = resepsionis.nama_tamu " +
+                            where);
+
+        while (rs.next()) {
+            Object[] data = {
+                rs.getString("nama_tamu"),
+                rs.getString("check_in"),
+                rs.getString("check_out"),
+            };
+
+            tabModel.addRow(data);
+        }
+    } catch (Exception e) {
+        e.printStackTrace();
+    }
+}
+
+
 }

@@ -4,15 +4,29 @@
  */
 package hotel;
 
+import java.sql.Connection;
+import java.sql.ResultSet;
+import java.sql.Statement;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
+import java.io.IOException;
+import org.apache.pdfbox.pdmodel.PDDocument;
+import org.apache.pdfbox.pdmodel.PDPage;
+import org.apache.pdfbox.pdmodel.PDPageContentStream;
 /**
  *
  * @author AXIOO
  */
 public class homePage extends javax.swing.JFrame {
     int xx, xy;
-    /**
-     * Creates new form homePage
-     */
+    
+    public Statement st;
+    public ResultSet rs;
+    public DefaultTableModel tabModel;
+    Connection cn = koneksi.Koneksi.koneksiDb();
+    
     public homePage() {
         initComponents();
     }
@@ -28,13 +42,34 @@ public class homePage extends javax.swing.JFrame {
 
         jPanel2 = new javax.swing.JPanel();
         jLabel3 = new javax.swing.JLabel();
+        jLabel8 = new javax.swing.JLabel();
+        jTabbedPane1 = new javax.swing.JTabbedPane();
         jPanel1 = new javax.swing.JPanel();
+        jPanel3 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
-        fasilitas = new javax.swing.JLabel();
-        home = new javax.swing.JLabel();
-        kamar = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
+        jPanel4 = new javax.swing.JPanel();
+        jPanel5 = new javax.swing.JPanel();
+        jLabel5 = new javax.swing.JLabel();
+        email = new javax.swing.JTextField();
+        jLabel10 = new javax.swing.JLabel();
+        nmPesan = new javax.swing.JTextField();
+        jLabel11 = new javax.swing.JLabel();
+        jLabel12 = new javax.swing.JLabel();
+        noTelp = new javax.swing.JTextField();
+        jLabel13 = new javax.swing.JLabel();
+        nmTamu = new javax.swing.JTextField();
+        jLabel14 = new javax.swing.JLabel();
+        konfirmasi = new javax.swing.JButton();
+        jLabel15 = new javax.swing.JLabel();
+        jLabel16 = new javax.swing.JLabel();
+        checkOut = new javax.swing.JSpinner();
+        checkIn = new javax.swing.JSpinner();
+        tipeKamar = new javax.swing.JComboBox<>();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setUndecorated(true);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jPanel2.setBackground(new java.awt.Color(255, 255, 255));
@@ -57,38 +92,117 @@ public class homePage extends javax.swing.JFrame {
         jLabel3.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         jPanel2.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 170, 140));
 
+        jLabel8.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/close icon.png"))); // NOI18N
+        jLabel8.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        jLabel8.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel8MouseClicked(evt);
+            }
+        });
+        jPanel2.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(1150, 0, 50, 50));
+
+        jTabbedPane1.setFont(new java.awt.Font("Verdana", 0, 12)); // NOI18N
+
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/background hotel_rezize.jpg"))); // NOI18N
-        jLabel1.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(-10, -230, -1, -1));
+        jPanel3.setBackground(new java.awt.Color(204, 204, 255));
+        jPanel3.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jPanel2.add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 140, 1130, 360));
+        jLabel1.setFont(new java.awt.Font("Verdana", 0, 18)); // NOI18N
+        jLabel1.setText("Tentang kami");
+        jPanel3.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 270, -1, -1));
 
-        fasilitas.setFont(new java.awt.Font("Vrinda", 1, 16)); // NOI18N
-        fasilitas.setForeground(new java.awt.Color(204, 204, 204));
-        fasilitas.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icons8-sofa-20-nonActive.png"))); // NOI18N
-        fasilitas.setText("Fasilitas");
-        jPanel2.add(fasilitas, new org.netbeans.lib.awtextra.AbsoluteConstraints(1050, 90, 90, -1));
+        jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/background hotel ukuran 1080-190.jpg"))); // NOI18N
+        jLabel2.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        jPanel3.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 60, 1080, 190));
 
-        home.setFont(new java.awt.Font("Vrinda", 1, 16)); // NOI18N
-        home.setForeground(new java.awt.Color(0, 0, 0));
-        home.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icons8-home-20.png"))); // NOI18N
-        home.setText("Home");
-        home.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 0, 2, new java.awt.Color(0, 0, 0)));
-        jPanel2.add(home, new org.netbeans.lib.awtextra.AbsoluteConstraints(880, 90, 70, -1));
+        jLabel4.setFont(new java.awt.Font("Verdana", 0, 18)); // NOI18N
+        jLabel4.setText("SELAMAT DATANG DI HOTEL HEBAT");
+        jPanel3.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, -1, -1));
 
-        kamar.setFont(new java.awt.Font("Vrinda", 1, 16)); // NOI18N
-        kamar.setForeground(new java.awt.Color(204, 204, 204));
-        kamar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icons8-single-bed-24-NonActive.png"))); // NOI18N
-        kamar.setText("Kamar");
-        kamar.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 0, 2, new java.awt.Color(204, 204, 204)));
-        jPanel2.add(kamar, new org.netbeans.lib.awtextra.AbsoluteConstraints(960, 90, 80, -1));
+        jPanel1.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1140, 460));
+
+        jTabbedPane1.addTab("Home", jPanel1);
+
+        jPanel4.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jPanel5.setBackground(new java.awt.Color(204, 204, 255));
+        jPanel5.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel5.setFont(new java.awt.Font("Verdana", 0, 24)); // NOI18N
+        jLabel5.setText("Form Pemesanan");
+        jPanel5.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, -1, -1));
+        jPanel5.add(email, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 140, 260, -1));
+
+        jLabel10.setFont(new java.awt.Font("Verdana", 0, 14)); // NOI18N
+        jLabel10.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        jLabel10.setText("Email");
+        jPanel5.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 140, 190, -1));
+        jPanel5.add(nmPesan, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 90, 260, -1));
+
+        jLabel11.setFont(new java.awt.Font("Verdana", 0, 14)); // NOI18N
+        jLabel11.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel11.setText("Tanggal Check-Out");
+        jPanel5.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(810, 90, 150, -1));
+
+        jLabel12.setFont(new java.awt.Font("Verdana", 0, 14)); // NOI18N
+        jLabel12.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        jLabel12.setText("No Handphone");
+        jPanel5.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 190, 190, -1));
+        jPanel5.add(noTelp, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 190, 260, -1));
+
+        jLabel13.setFont(new java.awt.Font("Verdana", 0, 14)); // NOI18N
+        jLabel13.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        jLabel13.setText("Nama Tamu");
+        jPanel5.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 240, 190, -1));
+        jPanel5.add(nmTamu, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 240, 260, -1));
+
+        jLabel14.setFont(new java.awt.Font("Verdana", 0, 14)); // NOI18N
+        jLabel14.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        jLabel14.setText("Tipe Kamar");
+        jPanel5.add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 290, 190, -1));
+
+        konfirmasi.setBackground(new java.awt.Color(51, 153, 255));
+        konfirmasi.setFont(new java.awt.Font("Verdana", 0, 12)); // NOI18N
+        konfirmasi.setForeground(new java.awt.Color(255, 255, 255));
+        konfirmasi.setText("Konfirmasi Pemesanan");
+        konfirmasi.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                konfirmasiActionPerformed(evt);
+            }
+        });
+        jPanel5.add(konfirmasi, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 330, 260, 30));
+
+        jLabel15.setFont(new java.awt.Font("Verdana", 0, 14)); // NOI18N
+        jLabel15.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        jLabel15.setText("Nama Pemesanan");
+        jPanel5.add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 90, 190, -1));
+
+        jLabel16.setFont(new java.awt.Font("Verdana", 0, 14)); // NOI18N
+        jLabel16.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel16.setText("Tanggal Check-In");
+        jPanel5.add(jLabel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 90, 150, -1));
+
+        checkOut.setModel(new javax.swing.SpinnerDateModel());
+        jPanel5.add(checkOut, new org.netbeans.lib.awtextra.AbsoluteConstraints(820, 130, 130, -1));
+
+        checkIn.setModel(new javax.swing.SpinnerDateModel());
+        jPanel5.add(checkIn, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 130, 130, -1));
+
+        tipeKamar.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Tipe Superior", "Tipe Dekuxe" }));
+        jPanel5.add(tipeKamar, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 290, 260, -1));
+
+        jPanel4.add(jPanel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1140, 460));
+
+        jTabbedPane1.addTab("Pesan kamar", jPanel4);
+
+        jPanel2.add(jTabbedPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 140, 1140, 490));
 
         getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1200, 660));
 
-        setSize(new java.awt.Dimension(1216, 877));
+        setSize(new java.awt.Dimension(1200, 660));
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
@@ -102,6 +216,82 @@ public class homePage extends javax.swing.JFrame {
         int y = evt.getYOnScreen();
         this.setLocation(x - xx, y - xy);
     }//GEN-LAST:event_jPanel2MouseDragged
+
+    private void jLabel8MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel8MouseClicked
+        System.exit(0);
+    }//GEN-LAST:event_jLabel8MouseClicked
+
+    private void konfirmasiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_konfirmasiActionPerformed
+        try {
+    st = cn.createStatement();
+
+    // Mengambil nilai dari komponen spinner Check-In
+    Date checkInDate = (Date) checkIn.getValue();
+    // Konversi nilai Date ke dalam format yang sesuai
+    SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+    String checkInString = sdf.format(checkInDate);
+
+    // Mengambil nilai dari komponen spinner Check-Out
+    Date checkOutDate = (Date) checkOut.getValue();
+    // Konversi nilai Date ke dalam format yang sesuai
+    String checkOutString = sdf.format(checkOutDate);
+
+    // Menyimpan data ke dalam database
+    st.executeUpdate("INSERT INTO pesanan VALUES('" 
+            + email.getText() + "','"
+            + noTelp.getText() + "','"
+            + nmTamu.getText() + "','"
+            + tipeKamar.getSelectedItem() + "','"            
+            + checkInString + "','"
+            + checkOutString + "','"
+            + nmPesan.getText() + "')");
+    
+//    PDDocument document = new PDDocument();
+//    PDPage page = new PDPage();
+//    document.addPage(page);
+//
+//    // Menambahkan isi PDF
+//    try (PDPageContentStream contentStream = new PDPageContentStream(document, page)) {
+//        contentStream.beginText();
+//        contentStream.newLineAtOffset(100, 700);
+//        contentStream.showText("Detail Pesanan:");
+//        contentStream.newLineAtOffset(0, -20);
+//        contentStream.showText("Email: " + email.getText());
+//        contentStream.newLineAtOffset(0, -20);
+//        contentStream.showText("Nomor Telepon: " + noTelp.getText());
+//        contentStream.newLineAtOffset(0, -20);
+//        contentStream.showText("Nama Tamu: " + nmTamu.getText());
+//        contentStream.newLineAtOffset(0, -20);
+//        contentStream.showText("Tipe Kamar: " + tipeKamar.getSelectedItem());
+//        contentStream.newLineAtOffset(0, -20);
+//        contentStream.showText("Check-In: " + checkInString);
+//        contentStream.newLineAtOffset(0, -20);
+//        contentStream.showText("Check-Out: " + checkOutString);
+//        contentStream.endText();
+//    }
+//
+//    document.save("Pesanan.pdf");
+//    document.close();
+
+    JOptionPane.showMessageDialog(null, "Pesanan anda berhasil terkirim");
+
+    // Mereset nilai komponen-komponen
+    email.setText("");
+    noTelp.setText("");
+    nmTamu.setText("");
+    tipeKamar.setSelectedItem("");
+    nmPesan.setText("");
+
+    // Reset nilai spinner Check-In dan Check-Out
+    checkIn.setValue(new Date());
+    checkOut.setValue(new Date());
+
+} catch (Exception e) {
+    e.printStackTrace();
+}
+
+
+    }//GEN-LAST:event_konfirmasiActionPerformed
 
     /**
      * @param args the command line arguments
@@ -139,12 +329,32 @@ public class homePage extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel fasilitas;
-    private javax.swing.JLabel home;
+    private javax.swing.JSpinner checkIn;
+    private javax.swing.JSpinner checkOut;
+    private javax.swing.JTextField email;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel11;
+    private javax.swing.JLabel jLabel12;
+    private javax.swing.JLabel jLabel13;
+    private javax.swing.JLabel jLabel14;
+    private javax.swing.JLabel jLabel15;
+    private javax.swing.JLabel jLabel16;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel8;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
-    private javax.swing.JLabel kamar;
+    private javax.swing.JPanel jPanel3;
+    private javax.swing.JPanel jPanel4;
+    private javax.swing.JPanel jPanel5;
+    private javax.swing.JTabbedPane jTabbedPane1;
+    private javax.swing.JButton konfirmasi;
+    private javax.swing.JTextField nmPesan;
+    private javax.swing.JTextField nmTamu;
+    private javax.swing.JTextField noTelp;
+    private javax.swing.JComboBox<String> tipeKamar;
     // End of variables declaration//GEN-END:variables
 }

@@ -47,6 +47,7 @@ public class Admin_FasilitasHotel extends javax.swing.JFrame {
         initComponents();
         judul();
         tampilData("");
+        reset();
         
         btnEdit.setEnabled(false);
         btnHapus.setEnabled(false);
@@ -173,7 +174,16 @@ public class Admin_FasilitasHotel extends javax.swing.JFrame {
                 "Nama Fasilitas", "Keterangan", "Image"
             }
         ));
+        table.setEditingColumn(10);
+        table.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tableMouseClicked(evt);
+            }
+        });
         jScrollPane1.setViewportView(table);
+        if (table.getColumnModel().getColumnCount() > 0) {
+            table.getColumnModel().getColumn(0).setResizable(false);
+        }
 
         jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 140, 740, 140));
 
@@ -196,6 +206,11 @@ public class Admin_FasilitasHotel extends javax.swing.JFrame {
         btnEdit.setForeground(new java.awt.Color(255, 255, 255));
         btnEdit.setText("Edit");
         btnEdit.setBorderPainted(false);
+        btnEdit.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnEditActionPerformed(evt);
+            }
+        });
         jPanel1.add(btnEdit, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 370, 80, 30));
 
         btnSimpan.setBackground(new java.awt.Color(51, 102, 255));
@@ -215,6 +230,11 @@ public class Admin_FasilitasHotel extends javax.swing.JFrame {
         btnHapus.setForeground(new java.awt.Color(255, 255, 255));
         btnHapus.setText("Hapus");
         btnHapus.setBorderPainted(false);
+        btnHapus.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnHapusActionPerformed(evt);
+            }
+        });
         jPanel1.add(btnHapus, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 320, 80, 30));
 
         jButton1.setBackground(new java.awt.Color(255, 102, 51));
@@ -286,7 +306,7 @@ public class Admin_FasilitasHotel extends javax.swing.JFrame {
     }//GEN-LAST:event_jLabel4MouseClicked
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        // TODO add your handling code here:
+        reset();
         
     }//GEN-LAST:event_jButton1ActionPerformed
 
@@ -319,6 +339,7 @@ public class Admin_FasilitasHotel extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, "Simpan Berhasil");
             namaFasilitas.setText("");
             keterangan.setText("");
+            lbl_photo.setIcon(null);
         } else {
             JOptionPane.showMessageDialog(null, "Anda belum memilih gambar!");
         }
@@ -343,6 +364,103 @@ public class Admin_FasilitasHotel extends javax.swing.JFrame {
             Logger.getLogger(Admin_FasilitasHotel.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_uploadIMGActionPerformed
+
+    private void btnHapusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnHapusActionPerformed
+        try {
+            int jawab;
+            
+            if ((jawab = JOptionPane.showConfirmDialog(null, "Ingin menghapus data?",
+                    "konfirmasi", JOptionPane.YES_NO_OPTION)) == 0) {
+                st = cn.createStatement();
+                st.executeUpdate("DELETE FROM fasilitas_umum WHERE namaFasilitas='"
+                    + tabModel.getValueAt(table.getSelectedRow(), 0) + "'");
+                tampilData("");
+                reset();
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }//GEN-LAST:event_btnHapusActionPerformed
+
+    private void tableMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tableMouseClicked
+        // Dapatkan data dari tabel
+String nama = table.getValueAt(table.getSelectedRow(), 0).toString();
+String keteranganValue = table.getValueAt(table.getSelectedRow(), 1).toString();
+
+// Set nilai ke field namaFasilitas dan keterangan
+namaFasilitas.setText(nama);
+keterangan.setText(keteranganValue);
+
+try {
+    // Ambil data gambar dari database
+    PreparedStatement ps = cn.prepareStatement("SELECT image FROM fasilitas_umum WHERE namaFasilitas = ?");
+    ps.setString(1, nama);
+    ResultSet rs = ps.executeQuery();
+
+    if (rs.next()) {
+        // Jika ada data gambar, tampilkan di label lbl_photo
+        byte[] imageBytes = rs.getBytes("image");
+        if (imageBytes != null && imageBytes.length > 0) {
+            ImageIcon icon = new ImageIcon(imageBytes);
+            lbl_photo.setIcon(icon);
+        } else {
+            // Jika tidak ada data gambar, atur label lbl_photo menjadi kosong
+            lbl_photo.setIcon(null);
+        }
+    }
+
+} catch (Exception ex) {
+    ex.printStackTrace();
+}
+
+// Nonaktifkan beberapa komponen
+namaFasilitas.setEnabled(false);
+btnSimpan.setEnabled(false);
+btnEdit.setEnabled(true);
+btnHapus.setEnabled(true);
+
+    }//GEN-LAST:event_tableMouseClicked
+
+    private void btnEditActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditActionPerformed
+        try {
+    st = cn.createStatement();
+
+    // Mengambil ImageIcon dari label
+    ImageIcon icon = (ImageIcon) lbl_photo.getIcon();
+
+    if (icon != null) {
+        // Mengonversi ImageIcon ke byte array
+        BufferedImage bi = new BufferedImage(icon.getIconWidth(), icon.getIconHeight(), BufferedImage.TYPE_INT_ARGB);
+        Graphics g = bi.createGraphics();
+        g.drawImage(icon.getImage(), 0, 0, null);
+        g.dispose();
+
+        ByteArrayOutputStream bos = new ByteArrayOutputStream();
+        ImageIO.write(bi, "png", bos);
+        byte[] imageBytes = bos.toByteArray();
+
+        // Menyimpan data ke database termasuk gambar
+        PreparedStatement ps = cn.prepareStatement("UPDATE fasilitas_umum SET keterangan = ?, image = ? WHERE namaFasilitas = ?");
+        ps.setString(1, keterangan.getText());
+        ps.setBytes(2, imageBytes);
+        ps.setString(3, namaFasilitas.getText());
+        ps.executeUpdate();
+
+        tampilData("");
+        JOptionPane.showMessageDialog(null, "Update Berhasil");
+        reset();
+    } else {
+        // Jika tidak ada gambar yang dipilih, hanya mengupdate keterangan
+        st.executeUpdate("UPDATE fasilitas_umum SET keterangan = '" + keterangan.getText() + "' WHERE namaFasilitas = '" + namaFasilitas.getText() + "'");
+        tampilData("");
+        JOptionPane.showMessageDialog(null, "Update Berhasil");
+        reset();
+    }
+} catch (Exception e) {
+    e.printStackTrace();
+}
+
+    }//GEN-LAST:event_btnEditActionPerformed
 
     /**
      * @param args the command line arguments
@@ -409,7 +527,9 @@ public class Admin_FasilitasHotel extends javax.swing.JFrame {
         table.setModel(tabModel);
     }    
     
-    public void tampilData(String where) {
+    
+
+public void tampilData(String where) {
     try {
         st = cn.createStatement();
         tabModel.getDataVector().removeAllElements();
@@ -429,6 +549,13 @@ public class Admin_FasilitasHotel extends javax.swing.JFrame {
         e.printStackTrace();
     }
 }
-
-    
+public void reset() {
+    namaFasilitas.setText("");
+    keterangan.setText("");
+    lbl_photo.setIcon(null);
+    btnSimpan.setEnabled(true);
+    namaFasilitas.setEnabled(true);
+    btnEdit.setEnabled(false);
+    btnHapus.setEnabled(false);
+}    
 }
