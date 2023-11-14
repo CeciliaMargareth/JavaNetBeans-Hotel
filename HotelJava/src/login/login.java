@@ -230,6 +230,11 @@ public class login extends javax.swing.JFrame {
                     fu.show();
                      this.dispose();
                 }
+                else if(rs.getString("level").equals("resep")){
+                    resepsionis.homeRes fr = new resepsionis.homeRes();
+                    fr.show();
+                     this.dispose();
+            }
             }else{
                 JOptionPane.showMessageDialog(null,"Maaf" + "password atau username anda salah");
                 username.setText("");

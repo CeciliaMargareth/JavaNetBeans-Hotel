@@ -10,7 +10,7 @@ import java.sql.Statement;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
-public class FasilitasKamar extends javax.swing.JFrame {
+public class homeRes extends javax.swing.JFrame {
     int xx, xy;
     
     public Statement st;
@@ -18,7 +18,7 @@ public class FasilitasKamar extends javax.swing.JFrame {
     public DefaultTableModel tabModel;
     Connection cn = koneksi.Koneksi.koneksiDb();
     
-    public FasilitasKamar() {
+    public homeRes() {
         initComponents();
         judul();
         tampilData("");
@@ -150,20 +150,21 @@ public class FasilitasKamar extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(FasilitasKamar.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(homeRes.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(FasilitasKamar.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(homeRes.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(FasilitasKamar.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(homeRes.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(FasilitasKamar.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(homeRes.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new FasilitasKamar().setVisible(true);
+                new homeRes().setVisible(true);
             }
         });
     }
