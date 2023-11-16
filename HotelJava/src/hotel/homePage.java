@@ -51,7 +51,24 @@ public class homePage extends javax.swing.JFrame {
         jLabel18 = new javax.swing.JLabel();
         jLabel19 = new javax.swing.JLabel();
         jLabel20 = new javax.swing.JLabel();
-        jPanel6 = new javax.swing.JPanel();
+        jPanel7 = new javax.swing.JPanel();
+        jLabel40 = new javax.swing.JLabel();
+        jLabel41 = new javax.swing.JLabel();
+        jLabel43 = new javax.swing.JLabel();
+        jLabel44 = new javax.swing.JLabel();
+        jLabel45 = new javax.swing.JLabel();
+        jLabel46 = new javax.swing.JLabel();
+        jLabel47 = new javax.swing.JLabel();
+        jLabel48 = new javax.swing.JLabel();
+        jLabel50 = new javax.swing.JLabel();
+        jLabel51 = new javax.swing.JLabel();
+        jLabel52 = new javax.swing.JLabel();
+        jLabel53 = new javax.swing.JLabel();
+        jLabel54 = new javax.swing.JLabel();
+        jLabel55 = new javax.swing.JLabel();
+        jLabel56 = new javax.swing.JLabel();
+        jLabel57 = new javax.swing.JLabel();
+        jLabel49 = new javax.swing.JLabel();
         jPanel4 = new javax.swing.JPanel();
         jPanel5 = new javax.swing.JPanel();
         jLabel5 = new javax.swing.JLabel();
@@ -70,6 +87,28 @@ public class homePage extends javax.swing.JFrame {
         checkOut = new javax.swing.JSpinner();
         checkIn = new javax.swing.JSpinner();
         tipeKamar = new javax.swing.JComboBox<>();
+        jPanel6 = new javax.swing.JPanel();
+        jLabel6 = new javax.swing.JLabel();
+        jLabel7 = new javax.swing.JLabel();
+        jLabel22 = new javax.swing.JLabel();
+        jLabel23 = new javax.swing.JLabel();
+        jLabel24 = new javax.swing.JLabel();
+        jLabel25 = new javax.swing.JLabel();
+        jLabel26 = new javax.swing.JLabel();
+        jLabel27 = new javax.swing.JLabel();
+        jLabel28 = new javax.swing.JLabel();
+        jLabel29 = new javax.swing.JLabel();
+        jLabel30 = new javax.swing.JLabel();
+        jLabel21 = new javax.swing.JLabel();
+        jLabel31 = new javax.swing.JLabel();
+        jLabel32 = new javax.swing.JLabel();
+        jLabel33 = new javax.swing.JLabel();
+        jLabel34 = new javax.swing.JLabel();
+        jLabel35 = new javax.swing.JLabel();
+        jLabel36 = new javax.swing.JLabel();
+        jLabel37 = new javax.swing.JLabel();
+        jLabel38 = new javax.swing.JLabel();
+        jLabel39 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
@@ -154,9 +193,82 @@ public class homePage extends javax.swing.JFrame {
 
         jTabbedPane1.addTab("Home", jPanel1);
 
-        jPanel6.setBackground(new java.awt.Color(204, 204, 255));
-        jPanel6.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-        jTabbedPane1.addTab("Fasilitas", jPanel6);
+        jPanel7.setBackground(new java.awt.Color(204, 204, 255));
+        jPanel7.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel40.setFont(new java.awt.Font("Verdana", 0, 24)); // NOI18N
+        jLabel40.setText("Tipe Deluxe");
+        jPanel7.add(jLabel40, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 40, -1, -1));
+
+        jLabel41.setFont(new java.awt.Font("Vani", 0, 14)); // NOI18N
+        jLabel41.setText("- AC");
+        jPanel7.add(jLabel41, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 340, -1, -1));
+
+        jLabel43.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel43.setIcon(new javax.swing.ImageIcon(getClass().getResource("/RESIZED IMAGE/Deluxe room.jpg"))); // NOI18N
+        jLabel43.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jLabel43.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        jPanel7.add(jLabel43, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 90, 310, 160));
+
+        jLabel44.setFont(new java.awt.Font("Verdana", 0, 24)); // NOI18N
+        jLabel44.setText("Tipe Superior");
+        jPanel7.add(jLabel44, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 30, -1, -1));
+
+        jLabel45.setFont(new java.awt.Font("Verdana", 0, 18)); // NOI18N
+        jLabel45.setText("Fasilitas");
+        jPanel7.add(jLabel45, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 270, -1, -1));
+
+        jLabel46.setFont(new java.awt.Font("Vani", 0, 14)); // NOI18N
+        jLabel46.setText("- Kamar berukuran luas 32 m2");
+        jPanel7.add(jLabel46, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 310, -1, -1));
+
+        jLabel47.setFont(new java.awt.Font("Vani", 0, 14)); // NOI18N
+        jLabel47.setText("- Kamar mandi shower");
+        jPanel7.add(jLabel47, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 340, -1, -1));
+
+        jLabel48.setFont(new java.awt.Font("Vani", 0, 14)); // NOI18N
+        jLabel48.setText("- Coffee Maker");
+        jPanel7.add(jLabel48, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 370, -1, -1));
+
+        jLabel50.setFont(new java.awt.Font("Vani", 0, 14)); // NOI18N
+        jLabel50.setText("- LED TV inch");
+        jPanel7.add(jLabel50, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 310, -1, -1));
+
+        jLabel51.setFont(new java.awt.Font("Verdana", 0, 18)); // NOI18N
+        jLabel51.setText("Fasilitas");
+        jPanel7.add(jLabel51, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 270, -1, -1));
+
+        jLabel52.setFont(new java.awt.Font("Vani", 0, 14)); // NOI18N
+        jLabel52.setText("- Kamar berukuran luas 45 m2");
+        jPanel7.add(jLabel52, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 310, -1, -1));
+
+        jLabel53.setFont(new java.awt.Font("Vani", 0, 14)); // NOI18N
+        jLabel53.setText("- Kamar mandi shower dan Bath Tub");
+        jPanel7.add(jLabel53, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 340, -1, -1));
+
+        jLabel54.setFont(new java.awt.Font("Vani", 0, 14)); // NOI18N
+        jLabel54.setText("- Coffee Maker");
+        jPanel7.add(jLabel54, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 370, -1, -1));
+
+        jLabel55.setFont(new java.awt.Font("Vani", 0, 14)); // NOI18N
+        jLabel55.setText("- AC");
+        jPanel7.add(jLabel55, new org.netbeans.lib.awtextra.AbsoluteConstraints(860, 370, -1, -1));
+
+        jLabel56.setFont(new java.awt.Font("Vani", 0, 14)); // NOI18N
+        jLabel56.setText("- Sofa");
+        jPanel7.add(jLabel56, new org.netbeans.lib.awtextra.AbsoluteConstraints(860, 310, -1, -1));
+
+        jLabel57.setFont(new java.awt.Font("Vani", 0, 14)); // NOI18N
+        jLabel57.setText("- LED TV inch");
+        jPanel7.add(jLabel57, new org.netbeans.lib.awtextra.AbsoluteConstraints(860, 340, -1, -1));
+
+        jLabel49.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel49.setIcon(new javax.swing.ImageIcon(getClass().getResource("/RESIZED IMAGE/Superior Room.jpg"))); // NOI18N
+        jLabel49.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jLabel49.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        jPanel7.add(jLabel49, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 90, 310, 160));
+
+        jTabbedPane1.addTab("Kamar", jPanel7);
 
         jPanel4.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -229,6 +341,122 @@ public class homePage extends javax.swing.JFrame {
         jPanel4.add(jPanel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1140, 460));
 
         jTabbedPane1.addTab("Pesan kamar", jPanel4);
+
+        jPanel6.setBackground(new java.awt.Color(204, 204, 255));
+        jPanel6.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel6.setFont(new java.awt.Font("Verdana", 0, 18)); // NOI18N
+        jLabel6.setText("Fasiilitas yang ada di Hotel Hebat");
+        jPanel6.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 30, -1, -1));
+
+        jLabel7.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/RESIZED IMAGE/xie-yujie-nick-U-luuUdWKI4-unsplash.jpg"))); // NOI18N
+        jLabel7.setText("jLabel7");
+        jLabel7.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jLabel7.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        jPanel6.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(870, 320, 140, 120));
+
+        jLabel22.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel22.setIcon(new javax.swing.ImageIcon(getClass().getResource("/RESIZED IMAGE/egor-myznik-rCZQCbUAQvg-unsplash.jpg"))); // NOI18N
+        jLabel22.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jLabel22.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        jPanel6.add(jLabel22, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 320, 140, 120));
+
+        jLabel23.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel23.setIcon(new javax.swing.ImageIcon(getClass().getResource("/RESIZED IMAGE/bathtub.jpg"))); // NOI18N
+        jLabel23.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jLabel23.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        jPanel6.add(jLabel23, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 150, 140, 120));
+
+        jLabel24.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel24.setIcon(new javax.swing.ImageIcon(getClass().getResource("/RESIZED IMAGE/huum-K65M3GbRYq8-unsplash.jpg"))); // NOI18N
+        jLabel24.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jLabel24.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        jPanel6.add(jLabel24, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 150, 140, 120));
+
+        jLabel25.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel25.setIcon(new javax.swing.ImageIcon(getClass().getResource("/RESIZED IMAGE/huy-nguyen-YhP-E5YwOGE-unsplash.jpg"))); // NOI18N
+        jLabel25.setText("jLabel7");
+        jLabel25.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jLabel25.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        jPanel6.add(jLabel25, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 320, 140, 120));
+
+        jLabel26.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel26.setIcon(new javax.swing.ImageIcon(getClass().getResource("/RESIZED IMAGE/jason-leung-poI7DelFiVA-unsplash.jpg"))); // NOI18N
+        jLabel26.setText("jLabel7");
+        jLabel26.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jLabel26.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        jPanel6.add(jLabel26, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 150, 140, 120));
+
+        jLabel27.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel27.setIcon(new javax.swing.ImageIcon(getClass().getResource("/RESIZED IMAGE/jens-kreuter-ngMtsE5r9eI-unsplash.jpg"))); // NOI18N
+        jLabel27.setText("jLabel7");
+        jLabel27.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jLabel27.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        jPanel6.add(jLabel27, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 320, 140, 120));
+
+        jLabel28.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel28.setIcon(new javax.swing.ImageIcon(getClass().getResource("/RESIZED IMAGE/milada-vigerova-x7mqPOxuJNw-unsplash.jpg"))); // NOI18N
+        jLabel28.setText("jLabel7");
+        jLabel28.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jLabel28.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        jPanel6.add(jLabel28, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 320, 140, 120));
+
+        jLabel29.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel29.setIcon(new javax.swing.ImageIcon(getClass().getResource("/RESIZED IMAGE/joe-ciciarelli-08AJKJf75kw-unsplash.jpg"))); // NOI18N
+        jLabel29.setText("jLabel7");
+        jLabel29.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jLabel29.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        jPanel6.add(jLabel29, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 150, 140, 120));
+
+        jLabel30.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel30.setIcon(new javax.swing.ImageIcon(getClass().getResource("/RESIZED IMAGE/risen-wang-20jX9b35r_M-unsplash.jpg"))); // NOI18N
+        jLabel30.setText("jLabel7");
+        jLabel30.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jLabel30.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        jPanel6.add(jLabel30, new org.netbeans.lib.awtextra.AbsoluteConstraints(870, 150, 140, 120));
+
+        jLabel21.setFont(new java.awt.Font("Verdana", 0, 14)); // NOI18N
+        jLabel21.setText("A Parking Lot");
+        jPanel6.add(jLabel21, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 290, -1, -1));
+
+        jLabel31.setFont(new java.awt.Font("Verdana", 0, 14)); // NOI18N
+        jLabel31.setText("Mini Bar");
+        jPanel6.add(jLabel31, new org.netbeans.lib.awtextra.AbsoluteConstraints(870, 290, -1, -1));
+
+        jLabel32.setFont(new java.awt.Font("Verdana", 0, 14)); // NOI18N
+        jLabel32.setText("Bathup");
+        jPanel6.add(jLabel32, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 120, -1, -1));
+
+        jLabel33.setFont(new java.awt.Font("Verdana", 0, 14)); // NOI18N
+        jLabel33.setText("GYM");
+        jPanel6.add(jLabel33, new org.netbeans.lib.awtextra.AbsoluteConstraints(870, 120, -1, -1));
+
+        jLabel34.setFont(new java.awt.Font("Verdana", 0, 14)); // NOI18N
+        jLabel34.setText("SPA");
+        jPanel6.add(jLabel34, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 120, -1, -1));
+
+        jLabel35.setFont(new java.awt.Font("Verdana", 0, 14)); // NOI18N
+        jLabel35.setText("Wardrobe");
+        jPanel6.add(jLabel35, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 290, -1, -1));
+
+        jLabel36.setFont(new java.awt.Font("Verdana", 0, 14)); // NOI18N
+        jLabel36.setText("Restaurant");
+        jPanel6.add(jLabel36, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 120, -1, -1));
+
+        jLabel37.setFont(new java.awt.Font("Verdana", 0, 14)); // NOI18N
+        jLabel37.setText("Television");
+        jPanel6.add(jLabel37, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 290, -1, -1));
+
+        jLabel38.setFont(new java.awt.Font("Verdana", 0, 14)); // NOI18N
+        jLabel38.setText("Swimming Pool");
+        jPanel6.add(jLabel38, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 120, -1, -1));
+
+        jLabel39.setFont(new java.awt.Font("Verdana", 0, 14)); // NOI18N
+        jLabel39.setText("Coffee Maker");
+        jPanel6.add(jLabel39, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 290, -1, -1));
+
+        jTabbedPane1.addTab("Fasilitas", jPanel6);
 
         jPanel2.add(jTabbedPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 140, 1140, 490));
 
@@ -351,9 +579,47 @@ public class homePage extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel19;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel20;
+    private javax.swing.JLabel jLabel21;
+    private javax.swing.JLabel jLabel22;
+    private javax.swing.JLabel jLabel23;
+    private javax.swing.JLabel jLabel24;
+    private javax.swing.JLabel jLabel25;
+    private javax.swing.JLabel jLabel26;
+    private javax.swing.JLabel jLabel27;
+    private javax.swing.JLabel jLabel28;
+    private javax.swing.JLabel jLabel29;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel30;
+    private javax.swing.JLabel jLabel31;
+    private javax.swing.JLabel jLabel32;
+    private javax.swing.JLabel jLabel33;
+    private javax.swing.JLabel jLabel34;
+    private javax.swing.JLabel jLabel35;
+    private javax.swing.JLabel jLabel36;
+    private javax.swing.JLabel jLabel37;
+    private javax.swing.JLabel jLabel38;
+    private javax.swing.JLabel jLabel39;
     private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel40;
+    private javax.swing.JLabel jLabel41;
+    private javax.swing.JLabel jLabel43;
+    private javax.swing.JLabel jLabel44;
+    private javax.swing.JLabel jLabel45;
+    private javax.swing.JLabel jLabel46;
+    private javax.swing.JLabel jLabel47;
+    private javax.swing.JLabel jLabel48;
+    private javax.swing.JLabel jLabel49;
     private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel50;
+    private javax.swing.JLabel jLabel51;
+    private javax.swing.JLabel jLabel52;
+    private javax.swing.JLabel jLabel53;
+    private javax.swing.JLabel jLabel54;
+    private javax.swing.JLabel jLabel55;
+    private javax.swing.JLabel jLabel56;
+    private javax.swing.JLabel jLabel57;
+    private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
@@ -362,6 +628,7 @@ public class homePage extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel5;
     private javax.swing.JPanel jPanel6;
+    private javax.swing.JPanel jPanel7;
     private javax.swing.JTabbedPane jTabbedPane1;
     private javax.swing.JButton konfirmasi;
     private javax.swing.JTextField nmPesan;
