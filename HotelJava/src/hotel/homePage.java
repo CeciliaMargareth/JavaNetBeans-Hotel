@@ -12,9 +12,6 @@ import java.util.Date;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import java.io.IOException;
-import org.apache.pdfbox.pdmodel.PDDocument;
-import org.apache.pdfbox.pdmodel.PDPage;
-import org.apache.pdfbox.pdmodel.PDPageContentStream;
 /**
  *
  * @author AXIOO
@@ -49,6 +46,12 @@ public class homePage extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
+        jLabel9 = new javax.swing.JLabel();
+        jLabel17 = new javax.swing.JLabel();
+        jLabel18 = new javax.swing.JLabel();
+        jLabel19 = new javax.swing.JLabel();
+        jLabel20 = new javax.swing.JLabel();
+        jPanel6 = new javax.swing.JPanel();
         jPanel4 = new javax.swing.JPanel();
         jPanel5 = new javax.swing.JPanel();
         jLabel5 = new javax.swing.JLabel();
@@ -90,7 +93,7 @@ public class homePage extends javax.swing.JFrame {
         jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/login/250x250_Logo.png"))); // NOI18N
         jLabel3.setToolTipText("");
         jLabel3.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        jPanel2.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 170, 140));
+        jPanel2.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 170, 130));
 
         jLabel8.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/close icon.png"))); // NOI18N
@@ -122,9 +125,38 @@ public class homePage extends javax.swing.JFrame {
         jLabel4.setText("SELAMAT DATANG DI HOTEL HEBAT");
         jPanel3.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, -1, -1));
 
+        jLabel9.setFont(new java.awt.Font("Verdana", 0, 14)); // NOI18N
+        jLabel9.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel9.setText("Lepaskan diri Anda ke hotel hebat, dikelilingi oleh keindahan Pegunungan yang indah danau, dan sawah menghijau. Nikmati sore yang hangat dan ");
+        jPanel3.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 310, 1080, -1));
+
+        jLabel17.setFont(new java.awt.Font("Verdana", 0, 14)); // NOI18N
+        jLabel17.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel17.setText("berenang di kolam renang dengan pemandangan matahari terbenam yang memukau; Kids's Club yang luas - menawarkan beragam fasilitas dan kegiatan");
+        jPanel3.add(jLabel17, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 330, 1080, -1));
+
+        jLabel18.setFont(new java.awt.Font("Verdana", 0, 14)); // NOI18N
+        jLabel18.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel18.setText(" anak-anak yang akan melengkapi kenyamanan keluarga. Convention Center kami, dilengkapi pelayanan lengkap dengan ruang Konvensi terbesar di ");
+        jPanel3.add(jLabel18, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 350, 1080, -1));
+
+        jLabel19.setFont(new java.awt.Font("Verdana", 0, 14)); // NOI18N
+        jLabel19.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel19.setText("Bandung, mampu mengakomodasi hingga 3.000 delegasi. Manfaatkan ruang penyelenggaraan Konvensi M.I.C.E  ");
+        jPanel3.add(jLabel19, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 370, 1080, -1));
+
+        jLabel20.setFont(new java.awt.Font("Verdana", 0, 14)); // NOI18N
+        jLabel20.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel20.setText("ataupun mewujudkan acara pernikahan adat ");
+        jPanel3.add(jLabel20, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 390, 1080, -1));
+
         jPanel1.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1140, 460));
 
         jTabbedPane1.addTab("Home", jPanel1);
+
+        jPanel6.setBackground(new java.awt.Color(204, 204, 255));
+        jPanel6.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        jTabbedPane1.addTab("Fasilitas", jPanel6);
 
         jPanel4.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -191,7 +223,7 @@ public class homePage extends javax.swing.JFrame {
         checkIn.setModel(new javax.swing.SpinnerDateModel());
         jPanel5.add(checkIn, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 130, 130, -1));
 
-        tipeKamar.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Tipe Superior", "Tipe Dekuxe" }));
+        tipeKamar.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Tipe Superior", "Tipe Deluxe" }));
         jPanel5.add(tipeKamar, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 290, 260, -1));
 
         jPanel4.add(jPanel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1140, 460));
@@ -244,36 +276,10 @@ public class homePage extends javax.swing.JFrame {
             + tipeKamar.getSelectedItem() + "','"            
             + checkInString + "','"
             + checkOutString + "','"
-            + nmPesan.getText() + "')");
-    //test test
-//    PDDocument document = new PDDocument(); 
-//    PDPage page = new PDPage();
-//    document.addPage(page);
-//
-//    // Menambahkan isi PDF
-//    try (PDPageContentStream contentStream = new PDPageContentStream(document, page)) {
-//        contentStream.beginText();
-//        contentStream.newLineAtOffset(100, 700);
-//        contentStream.showText("Detail Pesanan:");
-//        contentStream.newLineAtOffset(0, -20);
-//        contentStream.showText("Email: " + email.getText());
-//        contentStream.newLineAtOffset(0, -20);
-//        contentStream.showText("Nomor Telepon: " + noTelp.getText());
-//        contentStream.newLineAtOffset(0, -20);
-//        contentStream.showText("Nama Tamu: " + nmTamu.getText());
-//        contentStream.newLineAtOffset(0, -20);
-//        contentStream.showText("Tipe Kamar: " + tipeKamar.getSelectedItem());
-//        contentStream.newLineAtOffset(0, -20);
-//        contentStream.showText("Check-In: " + checkInString);
-//        contentStream.newLineAtOffset(0, -20);
-//        contentStream.showText("Check-Out: " + checkOutString);
-//        contentStream.endText();
-//    }
-//
-//    document.save("Pesanan.pdf");
-//    document.close();
+            + nmPesan.getText() + "')");           
 
-    JOptionPane.showMessageDialog(null, "Pesanan anda berhasil terkirim");
+    JOptionPane.showMessageDialog(null, "Pesanan anda berhasil terkirim.");
+
 
     // Mereset nilai komponen-komponen
     email.setText("");
@@ -340,16 +346,22 @@ public class homePage extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel16;
+    private javax.swing.JLabel jLabel17;
+    private javax.swing.JLabel jLabel18;
+    private javax.swing.JLabel jLabel19;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel20;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel5;
+    private javax.swing.JPanel jPanel6;
     private javax.swing.JTabbedPane jTabbedPane1;
     private javax.swing.JButton konfirmasi;
     private javax.swing.JTextField nmPesan;

@@ -82,30 +82,25 @@ public class login extends javax.swing.JFrame {
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel4.setFont(new java.awt.Font("Verdana", 0, 12)); // NOI18N
-        jLabel4.setForeground(new java.awt.Color(0, 0, 0));
         jLabel4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel4.setText("Username :");
         jLabel4.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 100, -1, 20));
 
         jLabel2.setFont(new java.awt.Font("Utsaah", 1, 30)); // NOI18N
-        jLabel2.setForeground(new java.awt.Color(0, 0, 0));
         jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel2.setText("Welcome !");
         jLabel2.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 10, -1, -1));
 
         jLabel5.setFont(new java.awt.Font("Verdana", 0, 12)); // NOI18N
-        jLabel5.setForeground(new java.awt.Color(0, 0, 0));
         jLabel5.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel5.setText("Login To Your Account");
         jLabel5.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 50, -1, 20));
 
-        username.setBackground(new java.awt.Color(255, 255, 255));
         username.setFont(new java.awt.Font("SimSun", 0, 12)); // NOI18N
         username.setHorizontalAlignment(javax.swing.JTextField.LEFT);
-        username.setText("Enter Username");
         username.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(204, 204, 204)));
         username.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusGained(java.awt.event.FocusEvent evt) {
@@ -120,7 +115,6 @@ public class login extends javax.swing.JFrame {
         jPanel1.add(username, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 130, 260, 20));
 
         jLabel6.setFont(new java.awt.Font("Verdana", 0, 12)); // NOI18N
-        jLabel6.setForeground(new java.awt.Color(0, 0, 0));
         jLabel6.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel6.setText("Password :");
         jLabel6.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
@@ -138,8 +132,6 @@ public class login extends javax.swing.JFrame {
         });
         jPanel1.add(reset, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 230, 100, -1));
 
-        password.setBackground(new java.awt.Color(255, 255, 255));
-        password.setText("jPasswordField2");
         password.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(204, 204, 204)));
         jPanel1.add(password, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 190, 260, -1));
 
