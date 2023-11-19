@@ -1,0 +1,8 @@
+========== Struk Pemesanan Kamar ==========
+Email: ceewe@gmail.com
+Nomor Telepon: 35345
+Nama Tamu: dsfddf
+Tipe Kamar: Tipe Deluxe
+Check-In: 2023-11-19
+Check-Out: 2023-11-19
+=========================================

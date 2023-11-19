@@ -4,6 +4,7 @@
  */
 package hotel;
 
+import java.io.PrintWriter;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.Statement;
@@ -11,7 +12,10 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
-import java.io.IOException;
+import javax.swing.JFileChooser;
+import javax.swing.filechooser.FileNameExtensionFilter;
+
+
 /**
  *
  * @author AXIOO
@@ -26,6 +30,7 @@ public class homePage extends javax.swing.JFrame {
     
     public homePage() {
         initComponents();
+        cetakStrukKeTxt();
     }
 
     /**
@@ -69,24 +74,6 @@ public class homePage extends javax.swing.JFrame {
         jLabel56 = new javax.swing.JLabel();
         jLabel57 = new javax.swing.JLabel();
         jLabel49 = new javax.swing.JLabel();
-        jPanel4 = new javax.swing.JPanel();
-        jPanel5 = new javax.swing.JPanel();
-        jLabel5 = new javax.swing.JLabel();
-        email = new javax.swing.JTextField();
-        jLabel10 = new javax.swing.JLabel();
-        nmPesan = new javax.swing.JTextField();
-        jLabel11 = new javax.swing.JLabel();
-        jLabel12 = new javax.swing.JLabel();
-        noTelp = new javax.swing.JTextField();
-        jLabel13 = new javax.swing.JLabel();
-        nmTamu = new javax.swing.JTextField();
-        jLabel14 = new javax.swing.JLabel();
-        konfirmasi = new javax.swing.JButton();
-        jLabel15 = new javax.swing.JLabel();
-        jLabel16 = new javax.swing.JLabel();
-        checkOut = new javax.swing.JSpinner();
-        checkIn = new javax.swing.JSpinner();
-        tipeKamar = new javax.swing.JComboBox<>();
         jPanel6 = new javax.swing.JPanel();
         jLabel6 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
@@ -109,6 +96,24 @@ public class homePage extends javax.swing.JFrame {
         jLabel37 = new javax.swing.JLabel();
         jLabel38 = new javax.swing.JLabel();
         jLabel39 = new javax.swing.JLabel();
+        jPanel4 = new javax.swing.JPanel();
+        jPanel5 = new javax.swing.JPanel();
+        jLabel5 = new javax.swing.JLabel();
+        email = new javax.swing.JTextField();
+        jLabel10 = new javax.swing.JLabel();
+        nmPesan = new javax.swing.JTextField();
+        jLabel11 = new javax.swing.JLabel();
+        jLabel12 = new javax.swing.JLabel();
+        noTelp = new javax.swing.JTextField();
+        jLabel13 = new javax.swing.JLabel();
+        nmTamu = new javax.swing.JTextField();
+        jLabel14 = new javax.swing.JLabel();
+        konfirmasi = new javax.swing.JButton();
+        jLabel15 = new javax.swing.JLabel();
+        jLabel16 = new javax.swing.JLabel();
+        checkOut = new javax.swing.JSpinner();
+        checkIn = new javax.swing.JSpinner();
+        tipeKamar = new javax.swing.JComboBox<>();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
@@ -270,6 +275,116 @@ public class homePage extends javax.swing.JFrame {
 
         jTabbedPane1.addTab("Kamar", jPanel7);
 
+        jPanel6.setBackground(new java.awt.Color(204, 204, 255));
+        jPanel6.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel6.setFont(new java.awt.Font("Verdana", 0, 18)); // NOI18N
+        jLabel6.setText("Fasiilitas yang ada di Hotel Hebat");
+        jPanel6.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 30, -1, -1));
+
+        jLabel7.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/RESIZED IMAGE/xie-yujie-nick-U-luuUdWKI4-unsplash.jpg"))); // NOI18N
+        jLabel7.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jLabel7.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        jPanel6.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(870, 320, 140, 120));
+
+        jLabel22.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel22.setIcon(new javax.swing.ImageIcon(getClass().getResource("/RESIZED IMAGE/egor-myznik-rCZQCbUAQvg-unsplash.jpg"))); // NOI18N
+        jLabel22.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jLabel22.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        jPanel6.add(jLabel22, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 320, 140, 120));
+
+        jLabel23.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel23.setIcon(new javax.swing.ImageIcon(getClass().getResource("/RESIZED IMAGE/bathtub.jpg"))); // NOI18N
+        jLabel23.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jLabel23.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        jPanel6.add(jLabel23, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 150, 140, 120));
+
+        jLabel24.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel24.setIcon(new javax.swing.ImageIcon(getClass().getResource("/RESIZED IMAGE/huum-K65M3GbRYq8-unsplash.jpg"))); // NOI18N
+        jLabel24.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jLabel24.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        jPanel6.add(jLabel24, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 150, 140, 120));
+
+        jLabel25.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel25.setIcon(new javax.swing.ImageIcon(getClass().getResource("/RESIZED IMAGE/huy-nguyen-YhP-E5YwOGE-unsplash.jpg"))); // NOI18N
+        jLabel25.setText("jLabel7");
+        jLabel25.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jLabel25.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        jPanel6.add(jLabel25, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 320, 140, 120));
+
+        jLabel26.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel26.setIcon(new javax.swing.ImageIcon(getClass().getResource("/RESIZED IMAGE/jason-leung-poI7DelFiVA-unsplash.jpg"))); // NOI18N
+        jLabel26.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jLabel26.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        jPanel6.add(jLabel26, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 150, 140, 120));
+
+        jLabel27.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel27.setIcon(new javax.swing.ImageIcon(getClass().getResource("/RESIZED IMAGE/jens-kreuter-ngMtsE5r9eI-unsplash.jpg"))); // NOI18N
+        jLabel27.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jLabel27.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        jPanel6.add(jLabel27, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 320, 140, 120));
+
+        jLabel28.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel28.setIcon(new javax.swing.ImageIcon(getClass().getResource("/RESIZED IMAGE/milada-vigerova-x7mqPOxuJNw-unsplash.jpg"))); // NOI18N
+        jLabel28.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jLabel28.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        jPanel6.add(jLabel28, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 320, 140, 120));
+
+        jLabel29.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel29.setIcon(new javax.swing.ImageIcon(getClass().getResource("/RESIZED IMAGE/joe-ciciarelli-08AJKJf75kw-unsplash.jpg"))); // NOI18N
+        jLabel29.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jLabel29.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        jPanel6.add(jLabel29, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 150, 140, 120));
+
+        jLabel30.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel30.setIcon(new javax.swing.ImageIcon(getClass().getResource("/RESIZED IMAGE/risen-wang-20jX9b35r_M-unsplash.jpg"))); // NOI18N
+        jLabel30.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jLabel30.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        jPanel6.add(jLabel30, new org.netbeans.lib.awtextra.AbsoluteConstraints(870, 150, 140, 120));
+
+        jLabel21.setFont(new java.awt.Font("Verdana", 0, 14)); // NOI18N
+        jLabel21.setText("A Parking Lot");
+        jPanel6.add(jLabel21, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 290, -1, -1));
+
+        jLabel31.setFont(new java.awt.Font("Verdana", 0, 14)); // NOI18N
+        jLabel31.setText("Mini Bar");
+        jPanel6.add(jLabel31, new org.netbeans.lib.awtextra.AbsoluteConstraints(870, 290, -1, -1));
+
+        jLabel32.setFont(new java.awt.Font("Verdana", 0, 14)); // NOI18N
+        jLabel32.setText("Bathup");
+        jPanel6.add(jLabel32, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 120, -1, -1));
+
+        jLabel33.setFont(new java.awt.Font("Verdana", 0, 14)); // NOI18N
+        jLabel33.setText("GYM");
+        jPanel6.add(jLabel33, new org.netbeans.lib.awtextra.AbsoluteConstraints(870, 120, -1, -1));
+
+        jLabel34.setFont(new java.awt.Font("Verdana", 0, 14)); // NOI18N
+        jLabel34.setText("SPA");
+        jPanel6.add(jLabel34, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 120, -1, -1));
+
+        jLabel35.setFont(new java.awt.Font("Verdana", 0, 14)); // NOI18N
+        jLabel35.setText("Wardrobe");
+        jPanel6.add(jLabel35, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 290, -1, -1));
+
+        jLabel36.setFont(new java.awt.Font("Verdana", 0, 14)); // NOI18N
+        jLabel36.setText("Restaurant");
+        jPanel6.add(jLabel36, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 120, -1, -1));
+
+        jLabel37.setFont(new java.awt.Font("Verdana", 0, 14)); // NOI18N
+        jLabel37.setText("Television");
+        jPanel6.add(jLabel37, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 290, -1, -1));
+
+        jLabel38.setFont(new java.awt.Font("Verdana", 0, 14)); // NOI18N
+        jLabel38.setText("Swimming Pool");
+        jPanel6.add(jLabel38, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 120, -1, -1));
+
+        jLabel39.setFont(new java.awt.Font("Verdana", 0, 14)); // NOI18N
+        jLabel39.setText("Coffee Maker");
+        jPanel6.add(jLabel39, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 290, -1, -1));
+
+        jTabbedPane1.addTab("Fasilitas", jPanel6);
+
         jPanel4.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jPanel5.setBackground(new java.awt.Color(204, 204, 255));
@@ -342,122 +457,6 @@ public class homePage extends javax.swing.JFrame {
 
         jTabbedPane1.addTab("Pesan kamar", jPanel4);
 
-        jPanel6.setBackground(new java.awt.Color(204, 204, 255));
-        jPanel6.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        jLabel6.setFont(new java.awt.Font("Verdana", 0, 18)); // NOI18N
-        jLabel6.setText("Fasiilitas yang ada di Hotel Hebat");
-        jPanel6.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 30, -1, -1));
-
-        jLabel7.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/RESIZED IMAGE/xie-yujie-nick-U-luuUdWKI4-unsplash.jpg"))); // NOI18N
-        jLabel7.setText("jLabel7");
-        jLabel7.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        jLabel7.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        jPanel6.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(870, 320, 140, 120));
-
-        jLabel22.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel22.setIcon(new javax.swing.ImageIcon(getClass().getResource("/RESIZED IMAGE/egor-myznik-rCZQCbUAQvg-unsplash.jpg"))); // NOI18N
-        jLabel22.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        jLabel22.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        jPanel6.add(jLabel22, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 320, 140, 120));
-
-        jLabel23.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel23.setIcon(new javax.swing.ImageIcon(getClass().getResource("/RESIZED IMAGE/bathtub.jpg"))); // NOI18N
-        jLabel23.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        jLabel23.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        jPanel6.add(jLabel23, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 150, 140, 120));
-
-        jLabel24.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel24.setIcon(new javax.swing.ImageIcon(getClass().getResource("/RESIZED IMAGE/huum-K65M3GbRYq8-unsplash.jpg"))); // NOI18N
-        jLabel24.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        jLabel24.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        jPanel6.add(jLabel24, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 150, 140, 120));
-
-        jLabel25.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel25.setIcon(new javax.swing.ImageIcon(getClass().getResource("/RESIZED IMAGE/huy-nguyen-YhP-E5YwOGE-unsplash.jpg"))); // NOI18N
-        jLabel25.setText("jLabel7");
-        jLabel25.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        jLabel25.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        jPanel6.add(jLabel25, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 320, 140, 120));
-
-        jLabel26.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel26.setIcon(new javax.swing.ImageIcon(getClass().getResource("/RESIZED IMAGE/jason-leung-poI7DelFiVA-unsplash.jpg"))); // NOI18N
-        jLabel26.setText("jLabel7");
-        jLabel26.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        jLabel26.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        jPanel6.add(jLabel26, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 150, 140, 120));
-
-        jLabel27.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel27.setIcon(new javax.swing.ImageIcon(getClass().getResource("/RESIZED IMAGE/jens-kreuter-ngMtsE5r9eI-unsplash.jpg"))); // NOI18N
-        jLabel27.setText("jLabel7");
-        jLabel27.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        jLabel27.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        jPanel6.add(jLabel27, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 320, 140, 120));
-
-        jLabel28.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel28.setIcon(new javax.swing.ImageIcon(getClass().getResource("/RESIZED IMAGE/milada-vigerova-x7mqPOxuJNw-unsplash.jpg"))); // NOI18N
-        jLabel28.setText("jLabel7");
-        jLabel28.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        jLabel28.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        jPanel6.add(jLabel28, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 320, 140, 120));
-
-        jLabel29.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel29.setIcon(new javax.swing.ImageIcon(getClass().getResource("/RESIZED IMAGE/joe-ciciarelli-08AJKJf75kw-unsplash.jpg"))); // NOI18N
-        jLabel29.setText("jLabel7");
-        jLabel29.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        jLabel29.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        jPanel6.add(jLabel29, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 150, 140, 120));
-
-        jLabel30.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel30.setIcon(new javax.swing.ImageIcon(getClass().getResource("/RESIZED IMAGE/risen-wang-20jX9b35r_M-unsplash.jpg"))); // NOI18N
-        jLabel30.setText("jLabel7");
-        jLabel30.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        jLabel30.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        jPanel6.add(jLabel30, new org.netbeans.lib.awtextra.AbsoluteConstraints(870, 150, 140, 120));
-
-        jLabel21.setFont(new java.awt.Font("Verdana", 0, 14)); // NOI18N
-        jLabel21.setText("A Parking Lot");
-        jPanel6.add(jLabel21, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 290, -1, -1));
-
-        jLabel31.setFont(new java.awt.Font("Verdana", 0, 14)); // NOI18N
-        jLabel31.setText("Mini Bar");
-        jPanel6.add(jLabel31, new org.netbeans.lib.awtextra.AbsoluteConstraints(870, 290, -1, -1));
-
-        jLabel32.setFont(new java.awt.Font("Verdana", 0, 14)); // NOI18N
-        jLabel32.setText("Bathup");
-        jPanel6.add(jLabel32, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 120, -1, -1));
-
-        jLabel33.setFont(new java.awt.Font("Verdana", 0, 14)); // NOI18N
-        jLabel33.setText("GYM");
-        jPanel6.add(jLabel33, new org.netbeans.lib.awtextra.AbsoluteConstraints(870, 120, -1, -1));
-
-        jLabel34.setFont(new java.awt.Font("Verdana", 0, 14)); // NOI18N
-        jLabel34.setText("SPA");
-        jPanel6.add(jLabel34, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 120, -1, -1));
-
-        jLabel35.setFont(new java.awt.Font("Verdana", 0, 14)); // NOI18N
-        jLabel35.setText("Wardrobe");
-        jPanel6.add(jLabel35, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 290, -1, -1));
-
-        jLabel36.setFont(new java.awt.Font("Verdana", 0, 14)); // NOI18N
-        jLabel36.setText("Restaurant");
-        jPanel6.add(jLabel36, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 120, -1, -1));
-
-        jLabel37.setFont(new java.awt.Font("Verdana", 0, 14)); // NOI18N
-        jLabel37.setText("Television");
-        jPanel6.add(jLabel37, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 290, -1, -1));
-
-        jLabel38.setFont(new java.awt.Font("Verdana", 0, 14)); // NOI18N
-        jLabel38.setText("Swimming Pool");
-        jPanel6.add(jLabel38, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 120, -1, -1));
-
-        jLabel39.setFont(new java.awt.Font("Verdana", 0, 14)); // NOI18N
-        jLabel39.setText("Coffee Maker");
-        jPanel6.add(jLabel39, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 290, -1, -1));
-
-        jTabbedPane1.addTab("Fasilitas", jPanel6);
-
         jPanel2.add(jTabbedPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 140, 1140, 490));
 
         getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1200, 660));
@@ -508,7 +507,7 @@ public class homePage extends javax.swing.JFrame {
 
     JOptionPane.showMessageDialog(null, "Pesanan anda berhasil terkirim.");
 
-
+    cetakStrukKeTxt();
     // Mereset nilai komponen-komponen
     email.setText("");
     noTelp.setText("");
@@ -636,4 +635,64 @@ public class homePage extends javax.swing.JFrame {
     private javax.swing.JTextField noTelp;
     private javax.swing.JComboBox<String> tipeKamar;
     // End of variables declaration//GEN-END:variables
+    private void cetakStrukKeTxt() {
+    try {
+        
+        // Mengambil nilai dari komponen spinner Check-In
+    Date checkInDate = (Date) checkIn.getValue();
+    // Konversi nilai Date ke dalam format yang sesuai
+    SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+    String checkInString = sdf.format(checkInDate);
+
+    // Mengambil nilai dari komponen spinner Check-Out
+    Date checkOutDate = (Date) checkOut.getValue();
+    // Konversi nilai Date ke dalam format yang sesuai
+    String checkOutString = sdf.format(checkOutDate);
+    
+        // Buat teks untuk struk dengan format yang lebih baik
+        String struk = "========== Struk Pemesanan Kamar ==========\n" +
+                "Email: " + email.getText() + "\n" +
+                "Nomor Telepon: " + noTelp.getText() + "\n" +
+                "Nama Tamu: " + nmTamu.getText() + "\n" +
+                "Tipe Kamar: " + tipeKamar.getSelectedItem() + "\n" +
+                "Check-In: " + checkInString + "\n" +
+                "Check-Out: " + checkOutString + "\n" +
+                "=========================================";
+
+        // Membuat JFileChooser untuk memilih lokasi penyimpanan
+        JFileChooser fileChooser = new JFileChooser();
+        fileChooser.setDialogTitle("Pilih Lokasi Penyimpanan");
+        fileChooser.setFileFilter(new FileNameExtensionFilter("File Teks (.txt)", "txt"));
+
+        int userSelection = fileChooser.showSaveDialog(null);
+        if (userSelection == JFileChooser.APPROVE_OPTION) {
+            // Mendapatkan path file yang dipilih
+            String filePath = fileChooser.getSelectedFile().getAbsolutePath();
+
+            // Menambahkan ekstensi .txt jika belum ada
+            if (!filePath.toLowerCase().endsWith(".txt")) {
+                filePath += ".txt";
+            }
+
+            // Menulis struk ke file
+            try (PrintWriter writer = new PrintWriter(filePath)) {
+                // Menulis struk dengan format yang lebih baik
+                writer.println("========== Struk Pemesanan Kamar ==========");
+                writer.println("Email: " + email.getText());
+                writer.println("Nomor Telepon: " + noTelp.getText());
+                writer.println("Nama Tamu: " + nmTamu.getText());
+                writer.println("Tipe Kamar: " + tipeKamar.getSelectedItem());
+                writer.println("Check-In: " + checkInString);
+                writer.println("Check-Out: " + checkOutString);
+                writer.println("=========================================");
+
+                JOptionPane.showMessageDialog(null, "Struk telah disimpan sebagai file teks: " + filePath);
+            }
+        }
+
+    } catch (Exception e) {
+        e.printStackTrace();
+    }
+}
+
 }
