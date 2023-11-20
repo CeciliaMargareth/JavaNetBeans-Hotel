@@ -59,6 +59,7 @@ public class Admin_fasilitas extends javax.swing.JFrame {
         btnHapus = new javax.swing.JButton();
         jLabel8 = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
+        logout = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setResizable(false);
@@ -226,6 +227,17 @@ public class Admin_fasilitas extends javax.swing.JFrame {
         });
         jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 400, 80, 30));
 
+        logout.setBackground(new java.awt.Color(255, 0, 51));
+        logout.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        logout.setForeground(new java.awt.Color(255, 255, 255));
+        logout.setText("Logout");
+        logout.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                logoutActionPerformed(evt);
+            }
+        });
+        jPanel1.add(logout, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 460, -1, 30));
+
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 800, 500));
 
         setSize(new java.awt.Dimension(816, 538));
@@ -332,6 +344,12 @@ public class Admin_fasilitas extends javax.swing.JFrame {
         btnHapus.setEnabled(true);
     }//GEN-LAST:event_tableFasilitasMouseClicked
 
+    private void logoutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_logoutActionPerformed
+        login.login fl = new login.login();
+        fl.show();
+        this.dispose();
+    }//GEN-LAST:event_logoutActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -382,6 +400,7 @@ public class Admin_fasilitas extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel8;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JButton logout;
     private javax.swing.JTextField namaFasilitas;
     private javax.swing.JTable tableFasilitas;
     private javax.swing.JTextField tipeKamar;

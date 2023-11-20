@@ -25,13 +25,7 @@ import javax.swing.ImageIcon;
 import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
-import java.io.FileInputStream;
 import java.sql.PreparedStatement;
-import javax.swing.*;
-import javax.swing.table.DefaultTableCellRenderer;
-import java.awt.*;
-import java.awt.image.BufferedImage;
-import java.io.ByteArrayInputStream;
 
 public class Admin_FasilitasHotel extends javax.swing.JFrame {
     int xx, xy;
@@ -82,6 +76,7 @@ public class Admin_FasilitasHotel extends javax.swing.JFrame {
         lbl_photo = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
         uploadIMG = new javax.swing.JButton();
+        logout = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
@@ -249,7 +244,6 @@ public class Admin_FasilitasHotel extends javax.swing.JFrame {
         });
         jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 370, 80, 30));
 
-        lbl_photo.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         lbl_photo.setPreferredSize(new java.awt.Dimension(220, 330));
         jPanel1.add(lbl_photo, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 330, 320, 130));
 
@@ -266,6 +260,17 @@ public class Admin_FasilitasHotel extends javax.swing.JFrame {
             }
         });
         jPanel1.add(uploadIMG, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 480, 320, -1));
+
+        logout.setBackground(new java.awt.Color(255, 0, 51));
+        logout.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        logout.setForeground(new java.awt.Color(255, 255, 255));
+        logout.setText("Logout");
+        logout.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                logoutActionPerformed(evt);
+            }
+        });
+        jPanel1.add(logout, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 500, -1, 30));
 
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, 540));
 
@@ -462,6 +467,12 @@ btnHapus.setEnabled(true);
 
     }//GEN-LAST:event_btnEditActionPerformed
 
+    private void logoutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_logoutActionPerformed
+        login.login fl = new login.login();
+        fl.show();
+        this.dispose();
+    }//GEN-LAST:event_logoutActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -515,6 +526,7 @@ btnHapus.setEnabled(true);
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTextField keterangan;
     private javax.swing.JLabel lbl_photo;
+    private javax.swing.JButton logout;
     private javax.swing.JTextField namaFasilitas;
     private javax.swing.JTable table;
     private javax.swing.JButton uploadIMG;

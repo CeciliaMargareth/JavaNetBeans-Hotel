@@ -114,6 +114,7 @@ public class homePage extends javax.swing.JFrame {
         checkOut = new javax.swing.JSpinner();
         checkIn = new javax.swing.JSpinner();
         tipeKamar = new javax.swing.JComboBox<>();
+        logout = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
@@ -459,6 +460,17 @@ public class homePage extends javax.swing.JFrame {
 
         jPanel2.add(jTabbedPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 140, 1140, 490));
 
+        logout.setBackground(new java.awt.Color(255, 0, 51));
+        logout.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        logout.setForeground(new java.awt.Color(255, 255, 255));
+        logout.setText("Logout");
+        logout.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                logoutActionPerformed(evt);
+            }
+        });
+        jPanel2.add(logout, new org.netbeans.lib.awtextra.AbsoluteConstraints(1060, 10, -1, -1));
+
         getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1200, 660));
 
         setSize(new java.awt.Dimension(1200, 660));
@@ -525,6 +537,12 @@ public class homePage extends javax.swing.JFrame {
 
 
     }//GEN-LAST:event_konfirmasiActionPerformed
+
+    private void logoutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_logoutActionPerformed
+        login.login fl = new login.login();
+        fl.show();
+        this.dispose();
+    }//GEN-LAST:event_logoutActionPerformed
 
     /**
      * @param args the command line arguments
@@ -630,6 +648,7 @@ public class homePage extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel7;
     private javax.swing.JTabbedPane jTabbedPane1;
     private javax.swing.JButton konfirmasi;
+    private javax.swing.JButton logout;
     private javax.swing.JTextField nmPesan;
     private javax.swing.JTextField nmTamu;
     private javax.swing.JTextField noTelp;

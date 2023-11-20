@@ -9,6 +9,7 @@ import java.sql.ResultSet;
 import java.sql.Statement;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
+import login.login;
 
 /**
  *
@@ -58,6 +59,7 @@ public class Admin_kamar extends javax.swing.JFrame {
         tipe_kamar = new javax.swing.JTextField();
         jLabel9 = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
+        logout = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
@@ -79,14 +81,12 @@ public class Admin_kamar extends javax.swing.JFrame {
         jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel3.setFont(new java.awt.Font("Shruti", 1, 24)); // NOI18N
-        jLabel3.setForeground(new java.awt.Color(0, 0, 0));
         jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel3.setText("Admin");
         jLabel3.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         jPanel2.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 60, 90, 40));
 
         jLabel4.setFont(new java.awt.Font("Verdana", 0, 12)); // NOI18N
-        jLabel4.setForeground(new java.awt.Color(0, 0, 0));
         jLabel4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel4.setText("Kamar");
         jLabel4.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 0, 2, new java.awt.Color(0, 0, 0)));
@@ -127,8 +127,6 @@ public class Admin_kamar extends javax.swing.JFrame {
 
         jScrollPane1.setBackground(new java.awt.Color(255, 255, 255));
 
-        tableKamar.setBackground(new java.awt.Color(255, 255, 255));
-        tableKamar.setForeground(new java.awt.Color(0, 0, 0));
         tableKamar.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null},
@@ -155,13 +153,10 @@ public class Admin_kamar extends javax.swing.JFrame {
         jPanel2.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 140, 740, 180));
 
         jLabel7.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        jLabel7.setForeground(new java.awt.Color(0, 0, 0));
         jLabel7.setText("Jumlah Kamar :");
         jPanel2.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 400, -1, -1));
 
-        jumlah_kamar.setBackground(new java.awt.Color(255, 255, 255));
         jumlah_kamar.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        jumlah_kamar.setForeground(new java.awt.Color(0, 0, 0));
         jumlah_kamar.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(204, 204, 204)));
         jPanel2.add(jumlah_kamar, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 430, 170, -1));
 
@@ -216,14 +211,11 @@ public class Admin_kamar extends javax.swing.JFrame {
         });
         jPanel2.add(btnSimpan, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 350, 80, 30));
 
-        tipe_kamar.setBackground(new java.awt.Color(255, 255, 255));
         tipe_kamar.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        tipe_kamar.setForeground(new java.awt.Color(0, 0, 0));
         tipe_kamar.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(204, 204, 204)));
         jPanel2.add(tipe_kamar, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 370, 170, -1));
 
         jLabel9.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        jLabel9.setForeground(new java.awt.Color(0, 0, 0));
         jLabel9.setText("Tipe Kamar :");
         jPanel2.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 340, -1, -1));
 
@@ -238,6 +230,17 @@ public class Admin_kamar extends javax.swing.JFrame {
             }
         });
         jPanel2.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 400, 80, 30));
+
+        logout.setBackground(new java.awt.Color(255, 0, 51));
+        logout.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        logout.setForeground(new java.awt.Color(255, 255, 255));
+        logout.setText("Logout");
+        logout.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                logoutActionPerformed(evt);
+            }
+        });
+        jPanel2.add(logout, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 460, -1, 30));
 
         getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
@@ -295,21 +298,9 @@ public class Admin_kamar extends javax.swing.JFrame {
     }//GEN-LAST:event_jLabel5MouseClicked
 
     private void btnHapusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnHapusActionPerformed
-        // TODO add your handling code here:
-        try {
-            int jawab;
-            
-            if ((jawab = JOptionPane.showConfirmDialog(null, "Ingin menghapus data?",
-                    "konfirmasi", JOptionPane.YES_NO_OPTION)) == 0) {
-                st = cn.createStatement();
-                st.executeUpdate("DELETE FROM kamar WHERE tipeKamar='"
-                    + tabModel.getValueAt(tableKamar.getSelectedRow(), 0) + "'");
-                tampilData("");
-                reset();
-            }
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
+        login fl = new login();
+        fl.show();
+        this.dispose();
     }//GEN-LAST:event_btnHapusActionPerformed
 
     private void btnEditMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnEditMouseClicked
@@ -344,6 +335,12 @@ public class Admin_kamar extends javax.swing.JFrame {
         // TODO add your handling code here:
         reset();
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void logoutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_logoutActionPerformed
+        login fl = new login();
+        fl.show();
+        this.dispose();
+    }//GEN-LAST:event_logoutActionPerformed
 
     /**
      * @param args the command line arguments
@@ -397,6 +394,7 @@ public class Admin_kamar extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTextField jumlah_kamar;
+    private javax.swing.JButton logout;
     private javax.swing.JTable tableKamar;
     private javax.swing.JTextField tipe_kamar;
     // End of variables declaration//GEN-END:variables
